@@ -1,0 +1,2 @@
+class SubrebbitsController < ApplicationController
+end
