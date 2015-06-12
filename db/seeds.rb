@@ -3,7 +3,7 @@ initial_userbase.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: Faker::Internet.password, avatar: Faker::Avatar.image)
 end
 
-categories["skiing", "chess", "whining", "tossing babies", "helping the elderly"]
+categories = ["skiing", "chess", "whining", "tossing babies", "helping the elderly"]
 categories.each { |cat| Subrebbit.create(category: cat)}
 
 all_users = User.all
@@ -18,7 +18,7 @@ end
 
 all_posts = Post.all
 initial_comments_count = 50
-initial_comments_count.each do
+initial_comments_count.times do
   Comment.create(body: Faker::Lorem.paragraph,
                  user_id: all_users[rand(0...initial_userbase)].id,
                  post_id: all_posts[rand(0...all_posts.count)].id)
