@@ -1,2 +1,11 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 subtitle">subrebbits</div>
+    <div class="col-sm-3 subtitle">post count</div>
+    <% @subrebbits.each do |subrebbit| %>
+      <div class="col-sm-5"><%= link_to subrebbit.category, subrebbit %></div>
+      <div class="col-sm-3"><%= subrebbit.posts.count %></div>
+    <% end %>
+  </div>
+</div>
+

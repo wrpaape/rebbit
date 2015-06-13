@@ -1,2 +1,25 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+div{
+  color: white;
+  background: black;
+}
+.header{
+  padding-top: 15px;
+  background: orange;
+  color: blue;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 40px;
+}
+.sidebar{
+  background: orange;
+  color: blue;
+  font-family: 'Brush Script MT', cursive;
+}
+.subtitle{
+  padding-top: 10px;
+  font-family: 'Brush Script MT', cursive;
+  text-decoration: underline;
+  font-size: 25px;
+}

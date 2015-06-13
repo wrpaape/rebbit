@@ -8,9 +8,9 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'autoprefixer-rails'
 
-group :assets do
-  gem 'twitter-bootstrap-rails'
-end
+# group :assets do
+#   gem 'twitter-bootstrap-rails'
+# end
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
