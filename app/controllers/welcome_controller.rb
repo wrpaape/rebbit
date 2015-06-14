@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @subrebbits = Subrebbit.all
+    @subrebbits = Subrebbit.all.sort_by { |subrebbit| subrebbit.posts.count }.reverse
   end
 
   def category

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all.order(carma: :desc).reverse
   end
 
   def new

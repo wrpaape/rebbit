@@ -5,18 +5,22 @@ div{
   color: white;
   background: black;
 }
+
 .header{
   padding-top: 15px;
   background: orange;
   color: blue;
   font-family: 'Brush Script MT', cursive;
   font-size: 40px;
+  text-decoration: none;
 }
-.sidebar{
+
+  .sidebar{
   background: orange;
   color: blue;
-  font-family: 'Brush Script MT', cursive;
+  font-size: 20px;
 }
+
 .subtitle{
   padding-top: 10px;
   font-family: 'Brush Script MT', cursive;

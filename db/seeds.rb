@@ -25,3 +25,22 @@ initial_comments_count.times do
 end
 
 
+all_posts.each do |post|
+  vote = Vote.create(post_id: post.id,
+              user_id: post.user_id,
+              upvotes: rand(0..1000),
+              downvotes: rand(0..100))
+  post.user.carma += vote.upvotes - vote.downvotes
+  post.user.save
+end
+
+Comment.all.each do |comment|
+  vote = Vote.create(comment_id: comment.id,
+              user_id: comment.user_id,
+              upvotes: rand(0..100),
+              downvotes: rand(0..10))
+  comment.user.carma += vote.upvotes - vote.downvotes
+  comment.user.save
+end
+
+

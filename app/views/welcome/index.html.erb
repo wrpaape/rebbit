@@ -1,11 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-5 subtitle">subrebbits</div>
-    <div class="col-sm-3 subtitle">post count</div>
-    <% @subrebbits.each do |subrebbit| %>
-      <div class="col-sm-5"><%= link_to subrebbit.category, subrebbit %></div>
-      <div class="col-sm-3"><%= subrebbit.posts.count %></div>
-    <% end %>
-  </div>
-</div>
-
+<div class="col-sm-5 subtitle">subrebbits</div>
+<div class="col-sm-3 subtitle">post count</div>
+<% @subrebbits.each do |subrebbit| %>
+  <div class="col-sm-5"><%= link_to subrebbit.category, subrebbit %></div>
+  <div class="col-sm-3"><%= subrebbit.posts.count %></div>
+<% end %>

@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20150611201927) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "avatar"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "carma",           default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "votes", force: :cascade do |t|
