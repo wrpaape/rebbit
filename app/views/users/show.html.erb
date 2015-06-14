@@ -1,2 +1,42 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row profile">
+  <div class="col-sm-2"><%= image_tag(@user.avatar, height: "100") %></div>
+  <div class="col-sm-10"></br><strong><%= @user.name %></strong></div>
+</div>
+
+<div class="row profile">
+  <div class="col-sm-2"><strong>carma:</strong></div>
+  <div class="col-sm-3"><%= "#{@vote_breakdown[:upvotes]} up" %></div>
+  <div class="col-sm-3"><%= "#{@vote_breakdown[:downvotes]} down" %></div>
+  <div class="col-sm-4"><%= "#{@user.carma} total" %></div>
+</div>
+
+<div class="row profile">
+  <div class="col-sm-2"><strong>email:</strong></div>
+  <div class="col-sm-10"><%= @user.email %></div>
+</div>
+
+<% if @user.posts.count == 0 %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header"><%= "#{@user.name} has no posts" %></div>
+  </div>
+<% else %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header">all posts</div>
+  </div>
+
+  <div class="row subtitle">
+    <div class="col-sm-2">(u/d)</div>
+    <div class="col-sm-5">title</div>
+    <div class="col-sm-2">subrebbit</div>
+    <div class="col-sm-3">created</div>
+  </div>
+
+  <% @user.posts.each do |post| %>
+    <div class="row smaller">
+      <div class="col-sm-2"><%= "(#{post.votes.first.upvotes}/#{post.votes.first.downvotes})" %></div>
+      <div class="col-sm-5"><%= post.title %></div>
+      <div class="col-sm-2"><%= post.subrebbit.category %></div>
+      <div class="col-sm-3"><%= post.created_at.strftime("%m/%d/%y %r") %></div>
+    </div>
+  <% end %>
+<% end %>

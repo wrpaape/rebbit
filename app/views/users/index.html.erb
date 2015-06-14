@@ -1,12 +1,15 @@
 <div class="col-sm-5 subtitle">users</div>
-<div class="col-sm-1 subtitle">carma</div>
-<div class="col-sm-1 subtitle">post count</div>
-<div class="col-sm-1 subtitle">comment count</div>
+<div class="col-sm-3 subtitle">carma (u/d)</div>
+<div class="col-sm-2 subtitle">posts</div>
+<div class="col-sm-2 subtitle">comments</div>
 
-<% @users.each do |user| %>
-  <div class="col-sm-2"><%= image_tag(user.avatar) %></div>
-  <div class="col-sm-3"><%= user.name %></div>
-  <div class="col-sm-1"><%= user.carma %></div>
-  <div class="col-sm-1"><%= user.posts.count %></div>
-  <div class="col-sm-1"><%= user.comments.count %></div>
+
+<% @users.each.with_index do |user, ind| %>
+  <div class="row small">
+    <div class="col-sm-1"><%= image_tag(user.avatar, height: "22") %></div>
+    <div class="col-sm-4"><%= link_to(user.name, user_path(user), class: "small") %></div>
+    <div class="col-sm-3"><%= "#{user.carma} (#{@votes[ind][:upvotes]}/#{@votes[ind][:downvotes]})" %></div>
+    <div class="col-sm-2"><%= user.posts.count %></div>
+    <div class="col-sm-2"><%= user.comments.count %></div>
+  </div>
 <% end %>

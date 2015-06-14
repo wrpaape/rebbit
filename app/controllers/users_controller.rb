@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(carma: :desc).reverse
+    @users = User.all.order(carma: :desc)
+    @votes = []
+    @users.each{ |user| @votes << user.vote_breakdown }
+    @votes
   end
 
   def new
@@ -20,6 +23,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @vote_breakdown = @user.vote_breakdown
   end
 
   def edit

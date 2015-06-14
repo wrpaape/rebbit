@@ -7,7 +7,7 @@ div{
 }
 
 .header{
-  padding-top: 15px;
+  padding: 15px;
   background: orange;
   color: blue;
   font-family: 'Brush Script MT', cursive;
@@ -25,5 +25,39 @@ div{
   padding-top: 10px;
   font-family: 'Brush Script MT', cursive;
   text-decoration: underline;
-  font-size: 25px;
+  font-size: 30px;
 }
+
+.small{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 12px;
+}
+
+.smaller{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+
+.donotsteal{
+  text-align: center;
+  font-family: 'Rockwell Extra Bold', 'Rockwell Bold', monospace;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.profile{
+  font-size: 25px;
+  padding-top: 25px;
+}
+
+.prof-header{
+  font-family: 'Brush Script MT', cursive;
+  text-decoration: underline;
+  font-size: 50px;
+  text-align: center;
+}
+
