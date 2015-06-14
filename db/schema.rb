@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611201927) do
+ActiveRecord::Schema.define(version: 20150614030306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,13 +56,13 @@ ActiveRecord::Schema.define(version: 20150611201927) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "upvotes"
-    t.integer  "downvotes"
+    t.integer  "upvotes",    default: 0
+    t.integer  "downvotes",  default: 0
     t.integer  "comment_id"
     t.integer  "user_id"
     t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "votes", ["comment_id"], name: "index_votes_on_comment_id", using: :btree

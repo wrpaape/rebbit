@@ -1,2 +1,25 @@
-<h1>Subrebbits#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% if @subrebbit.posts.count == 0 %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header"><%= "#{@subrebbit.category} has no posts" %></div>
+  </div>
+<% else %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header"><%= "welcome to #{@subrebbit.category}" %></div>
+  </div>
+
+  <div class="row subtitle">
+    <div class="col-sm-2">(u/d)</div>
+    <div class="col-sm-5">title</div>
+    <div class="col-sm-2">author</div>
+    <div class="col-sm-3">created</div>
+  </div>
+
+  <% @subrebbit.posts.each do |post| %>
+    <div class="row smaller"></br>
+      <div class="col-sm-2"><%= "(#{post.votes.first.upvotes}/#{post.votes.first.downvotes})" %></div>
+      <div class="col-sm-5"><%= link_to(post.title, post_path(post), class: "smaller") %></div>
+      <div class="col-sm-2"><%= link_to(post.user.name, user_path(post.user), class: "smaller") %></div>
+      <div class="col-sm-3"><%= post.created_at.strftime("%m/%d/%y %r") %></div>
+    </div>
+  <% end %>
+<% end %>
