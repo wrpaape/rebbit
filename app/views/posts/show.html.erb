@@ -1,2 +1,40 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row profile">
+  <div class="col-sm-12 prof-header">welcome to <%= link_to(@post.subrebbit.category, subrebbit_path(@post.subrebbit), class: "prof-header") %></div>
+</div>
+<div class="row subtitle2">
+  <div class="col-sm-12"><%= @post.title %></div>
+</div>
+<div class="row subtitle">
+  <div class="col-sm-2">(u/d)</div>
+  <div class="col-sm-5">body</div>
+  <div class="col-sm-2">author</div>
+  <div class="col-sm-3">created</div>
+</div>
+
+<div class="row smaller"></br>
+  <div class="col-sm-2"><%= "(#{@post.votes.first.upvotes}/#{@post.votes.first.downvotes})" %></div>
+  <div class="col-sm-5"><%= @post.body %></div>
+  <div class="col-sm-2"><%= link_to(@post.user.name, user_path(@post.user), class: "smaller") %></div>
+  <div class="col-sm-3"><%= @post.created_at.strftime("%m/%d/%y %r") %></div>
+</div>
+
+
+<% if @post.comments.count == 0 %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header"><%= "this post has no comments" %></div>
+  </div>
+<% else %>
+
+  <div class="row subtitle center">
+    <div class="col-sm-12">- comments -</div>
+  </div>
+
+  <% @post.comments.each do |comment| %>
+    <div class="row smaller"></br>
+      <div class="col-sm-2"><%= "(#{comment.votes.first.upvotes}/#{comment.votes.first.downvotes})" %></div>
+      <div class="col-sm-5"><%= comment.body %></div>
+      <div class="col-sm-2"><%= link_to(comment.user.name, user_path(comment.user), class: "smaller") %></div>
+      <div class="col-sm-3"><%= comment.created_at.strftime("%m/%d/%y %r") %></div>
+    </div>
+  <% end %>
+<% end %>

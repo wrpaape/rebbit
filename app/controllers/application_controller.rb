@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :current_user
   # Run 'current_user' before every controller action
 
+  # skip_before_action :verify_authenticity_token
+
   def current_user
     if @current_user.nil?
       if session[:user_id].present?

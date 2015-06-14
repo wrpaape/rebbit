@@ -1,6 +1,13 @@
-<div class="col-sm-5 subtitle">subrebbits</div>
-<div class="col-sm-3 subtitle">post count</div>
-<% @subrebbits.each do |subrebbit| %>
-  <div class="col-sm-5"><%= link_to subrebbit.category, subrebbit %></div>
-  <div class="col-sm-3"><%= subrebbit.posts.count %></div>
+<div class="row prof-header2">
+  <div class="col-sm-6">subrebbits</div>
+  <div class="col-sm-3">posts</div>
+  <div class="col-sm-3">users</div>
+</div>
+
+<% @subrebbits.each.with_index do |subrebbit, ind| %>
+  <div class="row prof-header3">
+    <div class="col-sm-6"><%= link_to(subrebbit.category, subrebbit, class: "prof-header3") %></div>
+    <div class="col-sm-3"><%= subrebbit.posts.count %></div>
+    <div class="col-sm-3"><%= @user_counts[ind] %></div>
+  </div>
 <% end %>
