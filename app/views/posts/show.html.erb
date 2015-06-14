@@ -12,7 +12,7 @@
 </div>
 
 <div class="row smaller"></br>
-  <div class="col-sm-2"><%= "(#{@post.votes.first.upvotes}/#{@post.votes.first.downvotes})" %></div>
+  <div class="col-sm-2">(<%= link_to(@post.votes.first.upvotes, votes_path(:params => { user_id: @post.user_id, post_id: @post.id, upvotes: 1 }), :method => :post, class: "smaller") + "/" + link_to(@post.votes.first.downvotes, votes_path(:params => { user_id: @post.user_id, post_id: @post.id, downvotes: 1} ), :method => :post, class: "smaller") %>)</div>
   <div class="col-sm-5"><%= @post.body %></div>
   <div class="col-sm-2"><%= link_to(@post.user.name, user_path(@post.user), class: "smaller") %></div>
   <div class="col-sm-3"><%= @post.created_at.strftime("%m/%d/%y %r") %></div>
@@ -31,7 +31,7 @@
 
   <% @post.comments.each do |comment| %>
     <div class="row smaller"></br>
-      <div class="col-sm-2"><%= "(#{comment.votes.first.upvotes}/#{comment.votes.first.downvotes})" %></div>
+      <div class="col-sm-2">(<%= link_to(comment.votes.first.upvotes, votes_path(:params => { user_id: comment.user_id, comment_id: comment.id, upvotes: 1 }), :method => :post, class: "smaller") + "/" + link_to(comment.votes.first.downvotes, votes_path(:params => { user_id: comment.user_id, comment_id: comment.id, downvotes: 1} ), :method => :post, class: "smaller") %>)</div>
       <div class="col-sm-5"><%= comment.body %></div>
       <div class="col-sm-2"><%= link_to(comment.user.name, user_path(comment.user), class: "smaller") %></div>
       <div class="col-sm-3"><%= comment.created_at.strftime("%m/%d/%y %r") %></div>
