@@ -1,6 +1,9 @@
 initial_userbase = 100
 initial_userbase.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: Faker::Internet.password, avatar: Faker::Avatar.image)
+  User.create(name: Faker::Name.name,
+              email: Faker::Internet.email,
+              password_digest: BCrypt::Password.create(Faker::Internet.password),
+              avatar: Faker::Avatar.image)
 end
 
 initial_categories = ["skiing", "chess", "whining", "tossing babies", "helping the elderly"]

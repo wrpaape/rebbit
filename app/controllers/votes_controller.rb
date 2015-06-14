@@ -5,13 +5,16 @@ class VotesController < ApplicationController
   end
 
   def update(vote, params)
+    user = User.find(params[:user_id])
     if upvotes = params[:upvotes]
       vote.upvotes += upvotes.to_i
+      user.carma += upvotes.to_i
     elsif downvotes = params[:downvotes]
       vote.downvotes += downvotes.to_i
+      user.carma -= downvotes.to_i
     end
 
-    if vote.save
+    if user.save && vote.save
       redirect_to :back
     else
       flash[:alert] = 'Errors'

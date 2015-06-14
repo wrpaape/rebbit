@@ -33,7 +33,7 @@
 
   <% @user.posts.each do |post| %>
     <div class="row smaller"></br>
-      <div class="col-sm-2"><%= "(#{post.votes.first.upvotes}/#{post.votes.first.downvotes})" %></div>
+      <div class="col-sm-2">(<%= link_to(post.votes.first.upvotes, votes_path(:params => { user_id: post.user_id, post_id: post.id, upvotes: 1 }), :method => :post, class: "smaller") + "/" + link_to(post.votes.first.downvotes, votes_path(:params => { user_id: post.user_id, post_id: post.id, downvotes: 1} ), :method => :post, class: "smaller") %>)</div>
       <div class="col-sm-5"><%= link_to(post.title, post_path(post), class: "smaller") %></div>
       <div class="col-sm-2"><%= link_to(post.subrebbit.category, subrebbit_path(post.subrebbit), class: "smaller") %></div>
       <div class="col-sm-3"><%= post.created_at.strftime("%m/%d/%y %r") %></div>

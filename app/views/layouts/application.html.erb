@@ -20,16 +20,31 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-1 header"><%= image_tag("rebbitor.png", height: "57") %></div>
-      <div class="col-sm-8 header">
+      <div class="col-sm-4 header">
         <%= link_to("rebbit", welcome_index_path, class: "header") %>
+      </div>
+      <div class="col-sm-4 header">
+        <% if @current_user %>
+          <%= "Hello, #{@current_user.name}" %>
+        <% else %>
+          <%= " " %>
+        <% end %>
       </div>
       <div class="col-sm-3 header">sidebar LOL!</div>
       <div class="col-sm-9"><%= yield %></div>
       <div class="col-sm-3 sidebar">
         <ul>
+          <li> <%= link_to 'sign up', new_user_path, class: "sidebar" %></li>
+          <li>
+            <% if logged_in? %>
+              <%= link_to 'logout', logout_path, class: "sidebar" %>
+            <% else %>
+              <%= link_to 'login', login_path, class: "sidebar" %>
+            <% end %>
+          </li>
           <li><%= link_to("about us", about_path, class: "sidebar") %></li>
           <li><%= link_to("all users", users_path, class: "sidebar") %></li>
-          <li><%= link_to("all users", "users", class: "sidebar") %></li>
+          <li><%= link_to 'new subbrebbit', new_subrebbit_path, class: "sidebar" %></li>
         </ul>
       </div>
     </div>

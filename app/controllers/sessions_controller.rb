@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(params[:name])
+    user = User.find_by(email: params[:email]) unless user = User.find_by(name: params[:name])
     # If the user exists AND the password entered is correct.
     if user && user.authenticate(params[:password])
       # Save the user id inside a browser cookie.
@@ -22,3 +22,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: 'Successfully Logged Out. Goodbye!'
   end
+end
