@@ -40,3 +40,29 @@
     </div>
   <% end %>
 <% end %>
+
+<% if @user.comments.count == 0 %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header"><%= "#{@user.name} has no comments" %></div>
+  </div>
+<% else %>
+  <div class="row profile">
+    <div class="col-sm-12 prof-header">all comments</div>
+  </div>
+
+  <div class="row subtitle">
+    <div class="col-sm-2">(u/d)</div>
+    <div class="col-sm-5">body</div>
+    <div class="col-sm-2">post</div>
+    <div class="col-sm-3">created</div>
+  </div>
+
+  <% @user.comments.each do |comment| %>
+    <div class="row smaller">
+      <div class="col-sm-2"><%= "(#{comment.votes.first.upvotes}/#{comment.votes.first.downvotes})" %></div>
+      <div class="col-sm-5"><%= link_to(comment.body, comment_path(comment), class: "smaller") %></div>
+      <div class="col-sm-2"><%= link_to(comment.post.title, post_path(comment.post), class: "smaller") %></div>
+      <div class="col-sm-3"><%= comment.created_at.strftime("%m/%d/%y %r") %></div>
+    </div>
+  <% end %>
+<% end %>
