@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     @vote = Vote.create(comment_id: @comment.id, user_id: @current_user.id)
     if @comment.save
-      redirect_to post_path(Post.find(@comment.post_id)), notice: "new comment successfully created"
+      @post = Post.find(@comment.post_id)
+      redirect_to post_path(@post, :params => { sort_by: "latest"}), notice: "new comment successfully created"
     else
       flash[:alert] = "error occured"
       render :new
