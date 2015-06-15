@@ -30,7 +30,7 @@
           <%= " " %>
         <% end %>
       </div>
-      <div class="col-sm-3 sidebar">
+      <div class="col-sm-3 sidebar1">
         <% if flash[:notice] || flash[:alert] %>
           <% flash.each do |name, msg| %>
             <%= content_tag(:div, msg, { class: "flash #{name}" }) %>
