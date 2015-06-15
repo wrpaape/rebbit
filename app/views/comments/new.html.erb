@@ -1,15 +1,15 @@
-<%= form_tag(@comment, class: "form-group" ) do %>
+<%= form_for(@comment, class: "form-group" ) do |f| %>
   <div class="row">
     <div class="col-sm-12 black center"></br>
-      <label for="body" class="subtitle white">new comment</label>
-      <%= text_area_tag(:body, nil, {rows: 10, cols: 60, placeholder: "LOLOLOLOLOL", id: "body"})  %>
+      <label for="body" class="white" style="vertical-align: top;">new comment</label>
+      <%= f.text_area(:body, {rows: 5, cols: 60, placeholder: "LOLOLOLOLOL", id: "body"})  %>
     </div>
   </div>
-    <%= hidden_field_tag :user_id, @current_user.id %>
-    <%= hidden_field_tag :post_id, @post.id %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.hidden_field :post_id, value: @post.id %>
   <div class="row">
     <div class="col-sm-12 black center"></br>
-      <%= submit_tag "submit", class: "black btn btn-default" %>
+      <%= f.submit "submit", class: "black btn btn-default" %>
     </div>
   </div>
 <% end %>

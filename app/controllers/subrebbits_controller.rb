@@ -43,6 +43,6 @@ class SubrebbitsController < ApplicationController
   private
 
   def subrebbit_params
-    params.permit(:category)
+    params.require(:subrebbit).permit(:category)
   end
 end

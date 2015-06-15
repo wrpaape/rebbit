@@ -1,18 +1,18 @@
-<%= form_tag(@post, class: "form-group" ) do %>
+<%= form_for(@post, class: "form-group") do |f| %>
   <div class="form-inline">
     <div class="col-sm-12 form-group"></br>
       <label for="title" class="white control-label">title  </label>
-      <%= text_field_tag(:title, nil, {placeholder: "!?!?!?!?!", id: "title", class: "black"})  %>
+      <%= f.text_field(:title, {placeholder: "!?!?!?!?!", id: "title", class: "black"})  %>
     </div>
   </div>
   <div class="form-inline">
     <div class="col-sm-12 form-group"></br>
       <label for="body" class="white control-label" style="vertical-align: top;">body</label>
-      <%= text_area_tag(:body, nil, {rows: 10, cols: 60, placeholder: "LOLOLOLOLOL", id: "body", class: "black"})  %>
+      <%= f.text_area(:body, {rows: 5, cols: 60, placeholder: "LOLOLOLOLOL", id: "body", class: "black"})  %>
     </div>
   </div>
-    <%= hidden_field_tag :user_id, @current_user.id %>
-    <%= hidden_field_tag :subrebbit_id, @subrebbit.id %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.hidden_field :subrebbit_id, value: @subrebbit.id %>
   <div class="row">
     <div class="col-sm-12 black center"></br>
       <%= submit_tag "submit", class: "black btn btn-default" %>
