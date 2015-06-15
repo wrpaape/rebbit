@@ -1,2 +1,7 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_tag create_post_path do %>
+<div class="subtitle2 left black"><span class="white">title: </span><%= text_field_tag(:title)  %></div>
+  <div class="subtitle2 left black"><span class="white">body: </span><%= text_area_tag(:body)  %></div>
+  <%= hidden_field_tag :user_id, @current_user.id %>
+  <%= hidden_field_tag :subrebbit_id, @subrebbit.id %>
+  <div class="subtitle2 left"><%= submit_tag "submit", class: "black" %></div>
+<% end %>

@@ -6,6 +6,9 @@
   <div class="row profile">
     <div class="col-sm-12 prof-header"><%= "welcome to #{@subrebbit.category}" %></div>
   </div>
+  <div class="row profile">
+    <div class="col-sm-12 "><%= link_to("new post", new_post_path(@subrebbit), class: "subtitle white") %></div>
+  </div>
 
   <div class="row subtitle">
     <div class="col-sm-2">(u/d)</div>

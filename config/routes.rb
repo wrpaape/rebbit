@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/about', as: 'about'
+  post 'posts', to: 'posts#create', as: 'create_post'
   post 'votes', to: 'votes#create', as: 'votes'
   post 'users', to: 'users#create', as: 'create_user'
   post 'subrebbits', to: 'subrebbits#create', as: 'create_subrebbit'

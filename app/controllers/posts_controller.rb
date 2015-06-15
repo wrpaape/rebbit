@@ -6,15 +6,17 @@ class PostsController < ApplicationController
   def new
     authenticate_user!
     @post = Post.new
+    @subrebbit = Subrebbit.find(params[:format])
   end
 
   def create
     authenticate_user!
-    @post = Post.new(post_params)
+    @post = Post.create(post_params)
+    @vote = Vote.create(post_id: @post.id, user_id: @current_user.id)
     if @post.save
-      redirect_to @post, notice: "New Post successfully created"
+      redirect_to subrebbit_path(Subrebbit.find(@post.subrebbit_id)), notice: "new post successfully created"
     else
-      flash[:alert] = "Error Occured"
+      flash[:alert] = "error occured"
       render :new
     end
   end
@@ -32,9 +34,9 @@ class PostsController < ApplicationController
     authenticate_user!
     post = Post.find(params[:id])
     if post.update(post_params)
-      redirect_to post, notice: 'Post successfully updated'
+      redirect_to post, notice: 'post successfully updated'
     else
-      flash[:alert] = "An error occured"
+      flash[:alert] = "an error occured"
       render :edit
     end
   end
@@ -47,6 +49,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :subrebbit_id, :title, :body)
+    params.permit(:user_id, :subrebbit_id, :title, :body)
   end
 end

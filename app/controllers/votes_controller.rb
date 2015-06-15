@@ -1,7 +1,11 @@
 class VotesController < ApplicationController
   def create
-    vote = Vote.create(vote_params) unless vote = Vote.find_by(vote_params)
-    update(vote, params)
+    if @current_user
+      vote = Vote.create(vote_params) unless vote = Vote.find_by(vote_params)
+      update(vote, params)
+    else
+      authenticate_user!
+    end
   end
 
   def update(vote, params)
