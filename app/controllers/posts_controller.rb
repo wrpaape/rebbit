@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     @vote = Vote.create(post_id: @post.id, user_id: @current_user.id)
     if @post.save
-      redirect_to subrebbit_path(Subrebbit.find(@post.subrebbit_id)), notice: "new post successfully created"
+      redirect_to subrebbit_path(Subrebbit.find(@post.subrebbit_id), :params => { sort_by: "latest"}), notice: "new post successfully created"
     else
       flash[:alert] = "error occured"
       render :new
