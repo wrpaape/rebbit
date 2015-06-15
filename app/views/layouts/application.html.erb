@@ -31,9 +31,9 @@
         <% end %>
       </div>
       <div class="col-sm-3 sidebar">
-        <% if flash[:notice] %>
+        <% if flash[:notice] || flash[:alert] %>
           <% flash.each do |name, msg| %>
-            <%= content_tag(:div, msg, { class: "flash #{name} header-small" }) %>
+            <%= content_tag(:div, msg, { class: "flash #{name}" }) %>
           <% end %>
         <% else %>
           <div class="row header"> </div>

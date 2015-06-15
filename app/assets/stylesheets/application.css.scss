@@ -6,8 +6,32 @@ div{
   background: black;
 }
 
-.flash{
+.flash {
   background: orange;
+  height: 75px;
+}
+
+.notice {
+  text-align: center;
+  margin: 16px 0;
+  padding-top: 15px;
+  background: green;
+  height: 55px;
+}
+.alert {
+  text-align: center;
+  margin-top: 12px;
+  background: red;
+  height: 55px;
+}
+
+.field_with_errors {
+  border: 2px solid red;
+  box-shadow: 2px 2px 0px gray;
+  box-shadow: 3px 3px 0px gray;
+  box-shadow: 4px 4px 0px gray;
+  box-shadow: 5px 5px 0px gray;
+  margin: 10px;
 }
 
 .header{

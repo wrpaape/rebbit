@@ -13,8 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_url, notice: 'successfully logged in'
     else
       # If user's login doesn't work, send them back to the login form.
-      flash[:alert] = "username or email did not match"
-      render :new
+      render :new, alert: "username or email did not match"
     end
   end
 
