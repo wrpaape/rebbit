@@ -1,8 +1,8 @@
-<%= form_tag(@subrebbit, class: "form-group" ) do %>
+<%= form_for(@subrebbit, class: "form-group" ) do |f| %>
   <div class="form-inline">
     <div class="col-sm-12 form-group center"></br>
       <label for="category" class="white control-label">new subrebbit</label>
-      <%= text_field_tag(:category, nil, { placeholder: "dead horse", id: "category", class: "black" })  %>
+      <%= f.text_field(:category, { placeholder: "dead horse", id: "category", class: "black" })  %>
     </div>
   </div>
   <div class="row">
