@@ -11,9 +11,13 @@ class SessionsController < ApplicationController
       # logged in when they navigate around our website.
       session[:user_id] = user.id
       redirect_to root_url, notice: 'successfully logged in'
-    else
+    elsif user
       # If user's login doesn't work, send them back to the login form.
-      render :new, alert: "username or email did not match"
+      flash[:alert] = 'incorrect password'
+      render :new
+    else
+      flash[:alert] = 'username or email does not exist'
+      render :new
     end
   end
 

@@ -33,7 +33,7 @@ $ rails s
 
 ###Takeaway
 
-- there has to be a faster way of swapping between dozens of files in sublime text editor
+- There has to be a faster way of swapping between dozens of files in sublime text editor
 
 ###Contents of this Repo
 

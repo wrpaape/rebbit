@@ -13,11 +13,11 @@ class UsersController < ApplicationController
 
   def create
     if User.find_by(name: params[:name]) && User.find_by(email: params[:email])
-      redirect_to :back, notice: "username and email is already taken"
+      redirect_to :back, alert: "username and email is already taken"
     elsif User.find_by(name: params[:name])
-      redirect_to :back, notice: "username is already taken"
+      redirect_to :back, alert: "username is already taken"
     elsif User.find_by(email: params[:email])
-      redirect_to :back, notice: "email is already taken"
+      redirect_to :back, alert: "email is already taken"
     else
       user = User.new(user_params)
       if user.save

@@ -21,7 +21,7 @@ class VotesController < ApplicationController
     if user.save && vote.save
       redirect_to :back
     else
-      flash[:alert] = 'Errors'
+      flash[:alert] = 'errors'
       render :back
     end
   end
