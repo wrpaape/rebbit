@@ -6,12 +6,24 @@ div{
   background: black;
 }
 
+.flash{
+  background: orange;
+}
+
 .header{
   padding: 15px;
   background: orange;
   color: blue;
   font-family: 'Brush Script MT', cursive;
   font-size: 40px;
+  text-decoration: none;
+}
+
+.header-small{
+  padding: 16px;
+  background: orange;
+  color: blue;
+  font-size: 20px;
   text-decoration: none;
 }
 

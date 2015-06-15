@@ -12,13 +12,21 @@ class UsersController < ApplicationController
 
 
   def create
-    user = User.new(user_params)
-    if user.save
-      #session[:user_id] = user.id
-      redirect_to root_path, notice: 'User created!'
+    if User.find_by(name: params[:name]) && User.find_by(email: params[:email])
+      redirect_to :back, notice: "username and email is already taken"
+    elsif User.find_by(name: params[:name])
+      redirect_to :back, notice: "username is already taken"
+    elsif User.find_by(email: params[:email])
+      redirect_to :back, notice: "email is already taken"
     else
-      flash[:alert] = 'Errors Occured.'
-      render :new
+      user = User.new(user_params)
+      if user.save
+        #session[:user_id] = user.id
+        redirect_to root_path, notice: 'user created!'
+      else
+        flash[:alert] = 'errors occured.'
+        render :new
+      end
     end
   end
 
@@ -39,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.permit(:name, :avatar, :email, :password, :password_confirmation)
   end
 end

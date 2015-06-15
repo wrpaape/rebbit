@@ -30,7 +30,15 @@
           <%= " " %>
         <% end %>
       </div>
-      <div class="col-sm-3 header">sidebar LOL!</div>
+      <div class="col-sm-3 sidebar">
+        <% if flash[:notice] %>
+          <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, { class: "flash #{name} header-small" }) %>
+          <% end %>
+        <% else %>
+          <div class="row header"> </div>
+        <% end %>
+      </div>
       <div class="col-sm-9"><%= yield %></div>
       <div class="col-sm-3 sidebar">
         <ul>
@@ -47,6 +55,8 @@
           <li><%= link_to 'new subbrebbit', new_subrebbit_path, class: "sidebar" %></li>
         </ul>
       </div>
+
+
     </div>
   </div>
 

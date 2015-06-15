@@ -6,6 +6,12 @@ initial_userbase.times do
               avatar: Faker::Avatar.image)
 end
 
+User.create(name: "admin",
+            email: "admin@admin.com",
+            password_digest: BCrypt::Password.create("admin"),
+            avatar: Faker::Avatar.image)
+initial_userbase += 1
+
 initial_categories = ["skiing", "chess", "whining", "tossing babies", "helping the elderly"]
 initial_categories.each { |cat| Subrebbit.create(category: cat)}
 
