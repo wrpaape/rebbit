@@ -52,10 +52,13 @@ div{
   text-decoration: none;
 }
 
-  .sidebar{
+.sidebar{
+  height: 100%;
   background: orange;
   color: blue;
   font-size: 20px;
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
 }
 
 .subtitle{
@@ -69,6 +72,11 @@ div{
   text-align: center;
   padding-top: 10px;
   font-size: 30px;
+}
+
+.main-content{
+  min-height: 200px;
+  overflow: hidden;
 }
 
 .small{

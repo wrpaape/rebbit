@@ -39,6 +39,8 @@
           <div class="row header"> </div>
         <% end %>
       </div>
+    </div>
+    <div class="row main-content">
       <div class="col-sm-9"><%= yield %></div>
       <div class="col-sm-3 sidebar">
         <ul>
@@ -54,8 +56,6 @@
           <li><%= link_to 'new subbrebbit', new_subrebbit_path, class: "sidebar" %></li>
         </ul>
       </div>
-
-
     </div>
   </div>
 

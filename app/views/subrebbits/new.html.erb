@@ -1,4 +1,13 @@
-<%= form_tag create_subrebbit_path do %>
-  <div class="subtitle2 left black"><span class="white">category: </span><%= text_field_tag(:category)  %></div>
-  <div class="subtitle2 left"><%= submit_tag "submit", class: "black" %></div>
+<%= form_tag(@subrebbit, class: "form-group" ) do %>
+  <div class="form-inline">
+    <div class="col-sm-12 form-group center"></br>
+      <label for="category" class="white control-label">new subrebbit</label>
+      <%= text_field_tag(:category, nil, { placeholder: "dead horse", id: "category", class: "black" })  %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 black center"></br>
+      <%= submit_tag "submit", class: "black btn btn-default" %>
+    </div>
+  </div>
 <% end %>
