@@ -23,6 +23,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if params[:sort_by] == "latest"
+      @comments = @post.comments.order(created_at: :desc)
+    elsif params[:sort_by] == "carma"
+      @comments = @post.comments.sort_by { |comment| comment.votes.first.upvotes - comment.votes.first.downvotes }.reverse
+    end
+    @post
+    @comments
   end
 
   def edit

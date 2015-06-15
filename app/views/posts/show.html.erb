@@ -22,7 +22,7 @@
   <div class="col-sm-12 "><%= link_to("new comment", new_comment_path(@post), class: "subtitle white") %></div>
 </div>
 
-<% if @post.comments.count == 0 %>
+<% if @comments.count == 0 %>
   <div class="row profile">
     <div class="col-sm-12 prof-header"><%= "this post has no comments" %></div>
   </div>
@@ -32,7 +32,11 @@
     <div class="col-sm-12">- comments -</div>
   </div>
 
-  <% @post.comments.each do |comment| %>
+  <div class="row profile">
+    <div class="col-sm-12 ">sort by: <%= link_to("latest", post_path(:params => { sort_by: "latest"}), class: "white") %> | <%= link_to("carma", post_path(:params => { sort_by: "carma"}), class: "white") %></div>
+  </div>
+
+  <% @comments.each do |comment| %>
     <div class="row smaller"></br>
       <div class="col-sm-2">(<%= link_to(comment.votes.first.upvotes, votes_path(:params => { user_id: comment.user_id, comment_id: comment.id, upvotes: 1 }), :method => :post, class: "smaller") + "/" + link_to(comment.votes.first.downvotes, votes_path(:params => { user_id: comment.user_id, comment_id: comment.id, downvotes: 1} ), :method => :post, class: "smaller") %>)</div>
       <div class="col-sm-5"><%= comment.body %></div>

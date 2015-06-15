@@ -6,7 +6,7 @@
 
 <% @subrebbits.each.with_index do |subrebbit, ind| %>
   <div class="row prof-header3">
-    <div class="col-sm-6"><%= link_to(subrebbit.category, subrebbit, class: "prof-header3") %></div>
+    <div class="col-sm-6"><%= link_to(subrebbit.category, subrebbit_path(subrebbit, :params => { sort_by: "latest"}), class: "prof-header3") %></div>
     <div class="col-sm-3"><%= subrebbit.posts.count %></div>
     <div class="col-sm-3"><%= @user_counts[ind] %></div>
   </div>
