@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'welcome/about', as: 'about'
   post 'votes', to: 'votes#create', as: 'votes'
   post 'users', to: 'users#create', as: 'create_user'
+  post 'subrebbits', to: 'subrebbits#create', as: 'create_subrebbit'
 
   resources :users, :posts, :comments, :subrebbits
 

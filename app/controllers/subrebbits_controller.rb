@@ -4,13 +4,18 @@ class SubrebbitsController < ApplicationController
   end
 
   def create
-    subrebbit = Subrebbit.new(subrebbit_params)
-    if Subrebbit.save
-      #session[:subrebbit_id] = Subrebbit.id
-      redirect_to root_path, notice: 'Subrebbit created!'
-    else
-      flash[:alert] = 'Errors Occured.'
+    if Subrebbit.find_by(category: params[:category])
+      flash[:alert] = 'already exists'
       render :new
+    else
+      subrebbit = Subrebbit.create(subrebbit_params)
+      if subrebbit.save
+        #session[:subrebbit_id] = Subrebbit.id
+        redirect_to root_path, notice: 'subrebbit created!'
+      else
+        flash[:alert] = 'errors occured.'
+        render :new
+      end
     end
   end
 
@@ -30,6 +35,6 @@ class SubrebbitsController < ApplicationController
   private
 
   def subrebbit_params
-    params.require(:subrebbit).permit(:category)
+    params.permit(:category)
   end
 end

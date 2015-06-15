@@ -1,2 +1,4 @@
-<h1>Subrebbits#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_tag create_subrebbit_path do %>
+  <div class="subtitle2 left black"><span class="white">category: </span><%= text_field_tag(:category)  %></div>
+  <div class="subtitle2 left"><%= submit_tag "submit", class: "black" %></div>
+<% end %>
