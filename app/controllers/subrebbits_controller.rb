@@ -21,6 +21,14 @@ class SubrebbitsController < ApplicationController
 
   def show
     @subrebbit = Subrebbit.find(params[:id])
+    if params[:sort_by] == "latest"
+      @posts = @subrebbit.posts.order(created_at: :desc)
+      puts @subrebbit.posts.inspect
+    elsif params[:sort_by] == "carma"
+      @posts = @subrebbit.posts.sort_by { |post| post.votes.first.upvotes - post.votes.first.downvotes }.reverse
+    end
+    @subrebbit
+    @posts
   end
 
   def edit

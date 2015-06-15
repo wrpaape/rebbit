@@ -1,5 +1,5 @@
 <div class="row profile">
-  <div class="col-sm-12 prof-header">welcome to <%= link_to(@post.subrebbit.category, subrebbit_path(@post.subrebbit), class: "prof-header") %></div>
+  <div class="col-sm-12 prof-header">welcome to <%= link_to(@post.subrebbit.category, subrebbit_path(@post.subrebbit, :params => { sort_by: "latest"}), class: "prof-header") %></div>
 </div>
 <div class="row subtitle2">
   <div class="col-sm-12"><%= @post.title %></div>
