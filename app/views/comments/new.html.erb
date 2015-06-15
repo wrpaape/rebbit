@@ -1,2 +1,6 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<%= form_tag create_comment_path do %>
+  <div class="subtitle2 left black"><span class="white">body: </span><%= text_area_tag(:body)  %></div>
+  <%= hidden_field_tag :user_id, @current_user.id %>
+  <%= hidden_field_tag :post_id, @post.id %>
+  <div class="subtitle2 left"><%= submit_tag "submit", class: "black" %></div>
+<% end %>

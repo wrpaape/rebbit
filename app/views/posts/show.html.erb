@@ -18,6 +18,9 @@
   <div class="col-sm-3"><%= @post.created_at.strftime("%m/%d/%y %r") %></div>
 </div>
 
+<div class="row profile">
+  <div class="col-sm-12 "><%= link_to("new comment", new_comment_path(@post), class: "subtitle white") %></div>
+</div>
 
 <% if @post.comments.count == 0 %>
   <div class="row profile">

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'posts', to: 'posts#create', as: 'create_post'
   post 'votes', to: 'votes#create', as: 'votes'
   post 'users', to: 'users#create', as: 'create_user'
+  post 'comments', to: 'comments#create', as: 'create_comment'
   post 'subrebbits', to: 'subrebbits#create', as: 'create_subrebbit'
 
   resources :users, :posts, :comments, :subrebbits

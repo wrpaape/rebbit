@@ -3,15 +3,20 @@ class CommentsController < ApplicationController
   end
 
   def new
+    authenticate_user!
+    @comment = Comment.new
+    @post = Post.find(params[:format])
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    authenticate_user!
+    @comment = Comment.create(comment_params)
+    @vote = Vote.create(comment_id: @comment.id, user_id: @current_user.id)
     if @comment.save
-      redirect_to :back
+      redirect_to post_path(Post.find(@comment.post_id)), notice: "new comment successfully created"
     else
-      flash[:alert] = 'Errors'
-      render :back
+      flash[:alert] = "error occured"
+      render :new
     end
   end
 
@@ -29,6 +34,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :post_id, :body)
+    params.permit(:user_id, :post_id, :body)
   end
 end
