@@ -24,13 +24,29 @@
   animation-duration:1s;
 }
 
+@mixin spin{
+  -webkit-animation:spin 25s ease-in-out infinite;
+  -moz-animation:spin 25s ease-in-out infinite;
+  animation:spin 25s ease-in-out infinite;
+}
+
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(36000deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(36000deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(36000deg); transform:rotate(36000deg); } }
+
 
 div{
   color: white;
   background: black;
+}
+
+.img{
+  &:hover{
+    @include spin;
+  }
 }
 
 .flash {
