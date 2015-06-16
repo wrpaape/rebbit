@@ -57,6 +57,22 @@ div{
   border-radius: 41px;
 }
 
+.post-row{
+  background: grey;
+  margin: 0 20px 20px;
+  -moz-border-radius: 35px; //for mozilla support
+  -webkit-border-radius: 35px; //for chrome support
+  border-radius: 35px;
+}
+
+.post{
+  background: grey;
+  margin: 25px 0;
+  -moz-border-radius: 25px; //for mozilla support
+  -webkit-border-radius: 25px; //for chrome support
+  border-radius: 25px;
+}
+
 .flash {
   -moz-border-radius: 33px; //for mozilla support
   -webkit-border-radius: 33px; //for chrome support
