@@ -49,7 +49,18 @@ div{
   }
 }
 
+.subreb{
+  background: grey;
+  margin: 20px 0;
+  -moz-border-radius: 41px; //for mozilla support
+  -webkit-border-radius: 41px; //for chrome support
+  border-radius: 41px;
+}
+
 .flash {
+  -moz-border-radius: 33px; //for mozilla support
+  -webkit-border-radius: 33px; //for chrome support
+  border-radius: 33px;
   display: flex;
   justify-content:center;
   align-content:center;
