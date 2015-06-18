@@ -49,6 +49,12 @@ div{
   }
 }
 
+.highlight{
+  -webkit-box-shadow: inset 0px 0px 59px 12px rgba(247,255,3,0.7);
+  -moz-box-shadow: inset 0px 0px 59px 12px rgba(247,255,3,0.7);
+  box-shadow: inset 0px 0px 59px 12px rgba(247,255,3,0.7);
+}
+
 .subreb{
   background: grey;
   margin: 20px 0;

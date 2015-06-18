@@ -18,6 +18,6 @@
 //= require_tree .
 'use strict';
 
-$('img').on('click', function () {
-  $('.main-content').closest('.row').find('a')[0].click();
+$('#rebbitor').on('click', function () {
+  $('.main-content').children().first().children().first().next().find('a').toggleClass('highlight');
 });
