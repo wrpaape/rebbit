@@ -1,3 +1,4 @@
+/* global $ */
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,3 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+'use strict';
+
+$('img').on('click', function () {
+  $('.main-content').closest('.row').find('a')[0].click();
+});
